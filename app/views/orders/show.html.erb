@@ -1,0 +1,50 @@
+<!-- Row -->
+<div class="row">
+    <!-- Column -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title"> Your Shipment</h4>
+                <div class="text-right">
+                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-success"></i> Tracking number: <%= @order.tracking %></h2>
+                    <span class="text-muted"><%= @order.shipment_fee %></span>
+                </div>
+                <span class="text-success"><%= @order.weight %>Kg</span>
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <!-- Column -->
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Shipping to <%= @order.first_name %></h4>
+                <div class="text-right">
+                    <h2 class="font-light m-b-0"><i class="ti-arrow-up text-info"></i> <%= @order.shipment_fee %></h2>
+                    <span class="text-muted"><%= @order.address %>, <%= @order.city %> <%= @order.state %></span>
+                </div>
+                <span class="text-info"><%= @order.country %></span>
+
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+<!-- Row -->
+<!-- Row -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Order Location</h4>
+        <div class="table-responsive">
+          <table class="table stylish-table">
+            <%= render @order.locations %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

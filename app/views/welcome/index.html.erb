@@ -1,0 +1,60 @@
+
+<%= render 'shared/silde' %>
+<% if notice %>
+<div class="container" style="position:absolute; top:100px; left:210px; z-index:9999999;">
+  <div class="col-md-8 col-md-offset-2">
+<div class="alert alert-success fade in">
+   <a href="#" class="close" data-dismiss="alert">&times;</a>
+  <p><%= notice %> </p>
+</div>
+</div>
+  </div>
+  <% elsif alert %>
+  <div class="container">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="alert alert-danger fade in">
+         <a href="#" class="close" data-dismiss="alert">&times;</a>
+        <p><%= alert %></p>
+      </div>
+    </div>
+  </div>
+      <% end %>
+<%= render 'shared/body' %>
+
+<%= javascript_include_tag "responsiveslides.min.js" %>
+
+
+<script>
+   // You can also use "$(window).load(function() {"
+   $(function () {
+     // Slideshow 4
+   $("#slider4").responsiveSlides({
+       auto: true,
+       pager: false,
+       nav: true,
+       speed: 900,
+       namespace: "callbacks",
+       before: function () {
+         $('.events').append("<li>before event fired.</li>");
+       },
+       after: function () {
+         $('.events').append("<li>after event fired.</li>");
+       }
+     });
+
+   });
+</script>
+<%= javascript_include_tag "jquery.flexslider" %>
+<script type="text/javascript">
+  $(function(){
+    SyntaxHighlighter.all();
+      });
+      $(window).load(function(){
+      $('.flexslider').flexslider({
+        animation: "slide",
+        start: function(slider){
+          $('body').removeClass('loading');
+        }
+    });
+  });
+</script>
